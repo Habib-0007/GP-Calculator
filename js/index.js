@@ -25,7 +25,7 @@ function addNewCourse(event) {
 		courseName.textContent = courseNameInputVal;
 		var courseUnit = document.createElement("h6");
 		courseName.classList.add("course_unit");
-		courseUnit.textContent = `${courseUnitInputVal} Unit`;
+		courseUnit.textContent = `${courseUnitInputVal}`;
 		var courseGrade = document.createElement("p");
 		courseName.classList.add("course_grade");
 		courseGrade.textContent = courseGradeInputVal;
@@ -38,12 +38,22 @@ function addNewCourse(event) {
 		console.log(eachCourseGrade);
 	});*/
 	var courseUnitNew = document.querySelectorAll(".course_unit");
-	console.log(
-		courseUnitNew.map(eachCourseUnit => {
-			/* console.log(eachCourseUnit.innerHTML); */
-			return eachCourseUnit;
-		})
-	);
+	var courseGradeNew = document.querySelectorAll(".course_grade");
+
+	let arr1 = Array.from(courseUnitNew);
+	let arr2 = Array.from(courseGradeNew);
+
+	let numArr1 = arr1.map(el => Number(el.innerHTML));
+	let numArr2 = arr2.map(el => Number(el.innerHTML));
+
+	console.log(numArr1);
+	console.log(numArr2);
+
+	/*
+	let totalSum = numArr1.reduce((acc, val, idx) => acc + val * numArr2[idx], 0);
+
+	console.log(totalSum);
+	*/
 }
 
 addBtn.addEventListener("click", addNewCourse);
